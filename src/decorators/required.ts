@@ -1,13 +1,11 @@
-/// <reference path="../util/validation.ts"/>
+import { validatorConfig } from "../util/validation.js";
 
-namespace App {
-  export function Required(target: any, propertyKey: string) {
-    validatorConfig[target.constructor.name] = {
-      ...validatorConfig[target.constructor.name],
-      [propertyKey]: [
-        ...(validatorConfig[target.constructor.name]?.[propertyKey] ?? []),
-        "required",
-      ],
-    };
-  }
+export function Required(target: any, propertyKey: string) {
+  validatorConfig[target.constructor.name] = {
+    ...validatorConfig[target.constructor.name],
+    [propertyKey]: [
+      ...(validatorConfig[target.constructor.name]?.[propertyKey] ?? []),
+      "required",
+    ],
+  };
 }
